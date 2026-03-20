@@ -1,0 +1,31 @@
+name: Free Lobster
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # 台灣時間每天 08:00（UTC 00:00）
+  workflow_dispatch:
+
+jobs:
+  run-lobster:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run lobster
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          LOBSTER_PROMPT: ${{ vars.LOBSTER_PROMPT }}
+          LOBSTER_MODEL: ${{ vars.LOBSTER_MODEL }}
+        run: python main.py
