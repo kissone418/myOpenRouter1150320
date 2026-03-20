@@ -28,4 +28,4 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           LOBSTER_PROMPT: ${{ vars.LOBSTER_PROMPT }}
           LOBSTER_MODEL: ${{ vars.LOBSTER_MODEL }}
-        run: python main.py
+        run: python myfmain.py
