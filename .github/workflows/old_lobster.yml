@@ -1,9 +1,6 @@
 name: Free Lobster
 
-on:
-  schedule:
-    - cron: "10 1 * * *"   # 台灣時間每天 09:10（UTC 01:10）
-  workflow_dispatch:
+
 
 jobs:
   run-lobster:
