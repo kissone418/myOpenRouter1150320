@@ -1,7 +1,5 @@
 name: Free Lobster
 
-
-
 jobs:
   run-lobster:
     runs-on: ubuntu-latest
