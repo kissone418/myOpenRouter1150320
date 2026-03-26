@@ -1,9 +1,7 @@
 on:
 
   workflow_dispatch:         # 手動測試按鈕
-  push:
-    branches:
-      - main               # 更新程式碼時自動測試
+ 
 jobs:
   run-lobster:
     runs-on: ubuntu-latest
